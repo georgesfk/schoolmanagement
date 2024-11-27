@@ -1,14 +1,20 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+# Utilisation de l'image de base Java 11
+FROM maven:3.8.1-openjdk-11-slim AS build
 
-# Set the working directory in the container
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Copy the jar file into the container
-COPY target/schoolmanagement-0.0.1-SNAPSHOT.jar /app/schoolmanagement.jar
+# Copier les fichiers du projet
+COPY . .
 
-# Expose the port your application will run on
-EXPOSE 8080
+# Compiler le projet Maven
+RUN mvn clean package
 
-# Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/app/schoolmanagement.jar"]
+# Utilisation de l'image OpenJDK pour exécuter l'application
+FROM openjdk:11-jre-slim
+
+# Copier le fichier JAR généré
+COPY --from=build /app/target/schoolmanagement-1.0-SNAPSHOT.jar /app/schoolmanagement.jar
+
+# Commande pour exécuter l'application
+CMD ["java", "-jar", "/app/schoolmanagement.jar"]
