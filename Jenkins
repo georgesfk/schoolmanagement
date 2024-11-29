@@ -1,53 +1,45 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USERNAME =  'georgesfk'  // Ton nom d'utilisateur Docker Hub
-        GITHUB_REPO_URL =  'https://github.com/georgesfk/schoolmanagement'  // URL de ton dépôt GitHub
-    }
+	    DOCKER_USERNAME =  'markayraph'
+	    GITHUB_REPO_URL =  'https://github.com/georgesfk/schoolmanagement'  }
 
     tools {
-        maven 'Maven-3.9.8'  // Utilise Maven 3.9.8 (assure-toi que cette version est bien installée sur Jenkins)
+        maven 'maven'
     }
 
     stages {
-        // Étape 1 : Checkout du code depuis le dépôt GitHub
         stage('Checkout') {
             steps {
-                git branch: 'main', url: "${env.GITHUB_REPO_URL}"  // Récupère le code de la branche principale
+                git branch: 'main', url: "${env.GITHUB_REPO_URL}"
             }
         }
 
-        // Étape 2 : Build du projet avec Maven
         stage('Build') {
             steps {
-                sh 'mvn clean package'  // Nettoie le projet et génère le package (JAR ou WAR)
+                sh 'mvn clean package'
             }
         }
 
-        // Étape 3 : Tests unitaires
         stage('Test') {
             steps {
-                sh 'mvn test'  // Lance les tests unitaires avec Maven
+                sh 'mvn test'
             }
         }
 
-        // Étape 4 : Build de l'image Docker
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Utilise le numéro de build de Jenkins pour taguer l'image Docker
                     docker.build("${env.DOCKER_USERNAME}/schoolmanagement:${env.BUILD_NUMBER}", '.')
                 }
             }
         }
 
-        // Étape 5 : Push de l'image Docker vers Docker Hub
         stage('Push Docker Image') {
             steps {
                 script {
-                    // Push l'image Docker vers Docker Hub avec les credentials définis dans Jenkins
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        docker.image("${env.DOCKER_USERNAME}/schoolmanagement:${env.BUILD_NUMBER}").push()
+                        docker.image("${env.DOCKER_USERNAME}/calculator:${env.BUILD_NUMBER}").push()
                     }
                 }
             }
