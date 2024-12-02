@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_USERNAME =  'georgesfk'  // Ton nom d'utilisateur Docker Hub
-        GITHUB_REPO_URL =  'https://github.com/georgesfk/schoolmanagement'  // URL de ton dépôt GitHub
+        DOCKER_USERNAME =  'georgesfk'  
+        GITHUB_REPO_URL =  'https://github.com/georgesfk/schoolmanagement'  
     }
 
     tools {
@@ -10,28 +10,28 @@ pipeline {
     }
 
     stages {
-        // Étape 1 : Checkout du code depuis le dépôt GitHub
+      
         stage('Checkout') {
             steps {
                 git branch: 'main', url: "${env.GITHUB_REPO_URL}"  // Récupère le code de la branche principale
             }
         }
 
-        // Étape 2 : Build du projet avec Maven
+  
         stage('Build') {
             steps {
                 sh 'mvn clean package'  // Nettoie le projet et génère le package (JAR ou WAR)
             }
         }
 
-        // Étape 3 : Tests unitaires
+     
         stage('Test') {
             steps {
                 sh 'mvn test'  // Lance les tests unitaires avec Maven
             }
         }
 
-        // Étape 4 : Build de l'image Docker
+       
         stage('Build Docker Image') {
             steps {
                 script {
@@ -41,7 +41,7 @@ pipeline {
             }
         }
 
-        // Étape 5 : Push de l'image Docker vers Docker Hub
+     
         stage('Push Docker Image') {
             steps {
                 script {
