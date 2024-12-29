@@ -1,0 +1,27 @@
+/* EtudiantPage.css */
+.etudiant-page {
+    padding: 20px;
+    background-color: #f4f8ff;
+  }
+  
+  .etudiant-page h1 {
+    font-size: 2em;
+    color: #004080;
+    text-align: center;
+  }
+  
+  .etudiant-page .profile {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .etudiant-page .info {
+    font-size: 1.1em;
+  }
+  
+  .etudiant-page .actions button {
+    margin-top: 20px;
+  }
+  
