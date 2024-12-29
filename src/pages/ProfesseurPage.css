@@ -1,0 +1,32 @@
+/* ProfesseurPage.css */
+.professeur-page {
+    padding: 20px;
+  }
+  
+  .professeur-page h1 {
+    font-size: 2em;
+    color: #004080;
+  }
+  
+  .professeur-page .actions {
+    margin-top: 30px;
+  }
+  
+  .professeur-page .card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .professeur-page .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .professeur-page .table th,
+  .professeur-page .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  

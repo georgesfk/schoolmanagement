@@ -1,0 +1,27 @@
+/* NotesPage.css */
+.notes-page {
+    padding: 30px;
+  }
+  
+  .notes-page h1 {
+    font-size: 2.5em;
+    color: #004080;
+  }
+  
+  .notes-page .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .notes-page .table th,
+  .notes-page .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  .notes-page .table th {
+    background-color: #004080;
+    color: white;
+  }
+  
