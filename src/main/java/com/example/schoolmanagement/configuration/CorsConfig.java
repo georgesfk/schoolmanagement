@@ -16,7 +16,7 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // Permettre l'envoi des cookies
-        config.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Origine autorisée
+        config.setAllowedOrigins(Arrays.asList("http://localhost:5173")); // Origine autorisée
         config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         source.registerCorsConfiguration("/**", config); // Applique à tous les endpoints
