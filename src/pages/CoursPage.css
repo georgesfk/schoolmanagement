@@ -1,0 +1,28 @@
+/* CoursPage.css */
+.cours-page {
+    padding: 30px;
+  }
+  
+  .cours-page h1 {
+    font-size: 2.5em;
+    color: #004080;
+  }
+  
+  .cours-page .courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .cours-page .card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .cours-page .card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  

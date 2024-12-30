@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+<<<<<<< HEAD
 
+=======
+import java.util.Optional;
+>>>>>>> 6241463d6357f1f4fdab2efe380f170e60527170
 
 @Service
 public class UserService {
