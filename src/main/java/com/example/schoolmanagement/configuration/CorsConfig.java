@@ -16,15 +16,10 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // Permettre l'envoi des cookies
-<<<<<<< HEAD
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173")); // Origine autorisée
-=======
-        config.setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Origine autorisée
->>>>>>> 6241463d6357f1f4fdab2efe380f170e60527170
+        config.setAllowedOrigins(Arrays.asList("http://localhost:8080")); // Origine autorisée
         config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         source.registerCorsConfiguration("/**", config); // Applique à tous les endpoints
         return new CorsFilter(source);
     }
 }
-
