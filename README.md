@@ -1,7 +1,11 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 6241463 (Résolution des conflits)
+=======
+>>>>>>> 6241463d6357f1f4fdab2efe380f170e60527170
+>>>>>>> f552b6488b632e35937f7bfc194f91ec31f9da4f
 # schoolmanagement
 
 
@@ -149,4 +153,8 @@ export default tseslint.config({
 })
 ```
 >>>>>>> 4e07f17 (modif)
+<<<<<<< HEAD
 >>>>>>> 6241463 (Résolution des conflits)
+=======
+>>>>>>> 6241463d6357f1f4fdab2efe380f170e60527170
+>>>>>>> f552b6488b632e35937f7bfc194f91ec31f9da4f

@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { HomeIcon, UserIcon } from 'lucide-react';  // Importer les icônes nécessaires
 import { StatItem } from '../types/admin';  // Type pour les statistiques
+=======
+import { HomeIcon, UserIcon } from 'lucide-react';  // Importez uniquement les icônes dont vous avez besoin
+import { StatItem } from '../types/admin';  // Importez le type StatItem depuis le bon fichier
+>>>>>>> f552b6488b632e35937f7bfc194f91ec31f9da4f
 
 export const useAdminStats = () => {
   const [stats, setStats] = useState<StatItem[] | null>(null);
@@ -12,6 +17,7 @@ export const useAdminStats = () => {
       try {
         setLoading(true);
         const response = await fetch('/api/admin/stats');
+<<<<<<< HEAD
         
         // Vérification de la validité de la réponse avant de la traiter
         if (!response.ok) {
@@ -36,13 +42,31 @@ export const useAdminStats = () => {
       } catch (err: any) {
         // Plus de détails sur l'erreur
         setError(`Failed to fetch stats: ${err.message}`);
+=======
+        const data = await response.json();
+
+        // Conversion des données récupérées en StatItem
+        const formattedStats: StatItem[] = data.map((stat: any) => ({
+          title: stat.name,   // Utilisez 'name' comme 'title'
+          icon: stat.icon === 'home' ? HomeIcon : UserIcon, // Exemple de conversion de chaîne en icône
+          value: stat.value.toString() // Convertir en chaîne
+        }));
+
+        setStats(formattedStats);
+      } catch (err) {
+        setError('Failed to fetch stats');
+>>>>>>> f552b6488b632e35937f7bfc194f91ec31f9da4f
       } finally {
         setLoading(false);
       }
     };
 
     fetchStats();
+<<<<<<< HEAD
   }, []); // Effectuer l'appel API une seule fois au montage du composant
+=======
+  }, []); // Effectue une fois lorsque le composant est monté
+>>>>>>> f552b6488b632e35937f7bfc194f91ec31f9da4f
 
   return { stats, loading, error };
 };
